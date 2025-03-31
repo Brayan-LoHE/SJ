@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sociedad de la Justicia</title>
+
+  <!-- Enlazamos el archivo CSS (ajusta la ruta según tu proyecto) -->
+  <link rel="stylesheet" href="styles/main.css" />
+  
+  <!-- Fuente Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Intro Video pantalla completa -->
+  <div id="intro-video" class="intro-fullscreen">
+    <video autoplay muted playsinline id="videoElement">
+      <source src="assets/intro_sociedad_justicia.webm" type="video/webm">
+      Tu navegador no soporta el video.
+    </video>
+  </div>
+
+  <!-- Encabezado con imagen -->
+  <div class="header-banner">
+    <img src="assets/encabezado_logo_frame-removebg-preview.png" alt="Sociedad de la Justicia">
+  </div>
+
+  <!-- Barra de navegación sticky -->
+  <nav class="sticky-nav">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre">Sobre Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sección de Bienvenidos (Hero) -->
+  <!-- Notar: inicia con class="hero shrunk", luego en JS se pone "expanded" -->
+  <section id="inicio" class="hero shrunk">
+    <div class="hero-content">
+      <h2>Bienvenidos</h2>
+      <p>En Sociedad de la Justicia, brindamos soluciones legales con ética, compromiso y excelencia profesional. Nuestro despacho está comprometido con la defensa de tus derechos y el acceso a la justicia.</p>
+    </div>
+  </section>
+
+  <!-- Sección Sobre Nosotros -->
+  <section id="sobre" class="section-expandable shrunk">
+    <div class="section-content">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        Somos un despacho de abogados con amplia experiencia en diversas ramas del derecho.
+        Nuestro equipo está formado por profesionales apasionados por la justicia, comprometidos
+        con brindar un servicio personalizado y confiable.
+      </p>
+
+      <div class="mv">
+        <h3>Misión</h3>
+        <p>Brindar asesoría y representación legal de alta calidad, basada en principios éticos y compromiso con la justicia, para ofrecer soluciones efectivas y humanas a cada uno de nuestros clientes.</p>
+
+        <h3>Visión</h3>
+        <p>Ser un despacho jurídico líder, reconocido por su profesionalismo, integridad y vocación de servicio, contribuyendo al fortalecimiento del estado de derecho y la confianza ciudadana en el sistema legal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Servicios -->
+  <section id="servicios" class="servicios-expandable shrunk">
+    <h2>Servicios</h2>
+    <div class="carrusel">
+      <div class="carrusel-track">
+        <div class="servicio-card">
+          <h3>Asesoría Legal Integral</h3>
+          <div class="servicio-img-wrapper" onclick="mostrarModalIntegral()">
+            <img src="assets/integral.jpg" alt="Asesoría Legal Integral" class="imagen-servicio" onclick="mostrarModalIntegral()">
+            <div class="icono-mas">+</div>
+          </div>
+        </div>
+        <div class="servicio-card">
+          <h3>Derecho Civil y Familiar</h3>
+          <div class="servicio-img-wrapper" onclick="mostrarModalIntegral()">
+            <img src="assets/familiar.jpg" alt="Derecho Civil y Familiar" class="imagen-servicio" onclick="mostrarModalIntegral()">
+            <div class="icono-mas">+</div>
+          </div>
+        </div>
+        <div class="servicio-card">
+          <h3>Litigio Penal</h3>
+          <div class="servicio-img-wrapper" onclick="mostrarModalIntegral()">
+            <img src="assets/penal.jpg" alt="Litigio Penal" class="imagen-servicio" onclick="mostrarModalIntegral()">
+            <div class="icono-mas">+</div>
+          </div>
+        </div>
+        <div class="servicio-card">
+          <h3>Contratos y Empresas</h3>
+          <div class="servicio-img-wrapper" onclick="mostrarModalIntegral()">
+            <img src="assets/empresas.jpg" alt="Contratos y Empresas" class="imagen-servicio" onclick="mostrarModalIntegral()">
+            <div class="icono-mas">+</div>
+          </div>
+        </div>
+        <div class="servicio-card">
+          <h3>Derechos Humanos</h3>
+          <div class="servicio-img-wrapper" onclick="mostrarModalIntegral()">
+            <img src="assets/humanos.jpg" alt="Derechos Humanos" class="imagen-servicio" onclick="mostrarModalIntegral()">
+            <div class="icono-mas">+</div>
+          </div>
+        </div>
+      </div>
+      <button class="carrusel-btn prev">&#10094;</button>
+      <button class="carrusel-btn next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Sección Equipo -->
+  <section id="equipo">
+    <h2>Nuestro Equipo</h2>
+    <p>Contamos con un equipo multidisciplinario de abogados especializados, cada uno con una trayectoria destacada.</p>
+  </section>
+
+  <!-- Sección Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contacto-iconos">
+      <!-- Ícono de Correo -->
+      <div class="icono-individual" onclick="abrirFormularioContacto()">
+        <img src="assets/icono-correo.png" alt="Contáctanos">
+      </div>
+    
+      <!-- TikTok -->
+      <div class="icono-individual">
+        <a href="https://www.tiktok.com/@tuperfil" target="_blank">
+          <img src="assets/tik.jpeg" alt="TikTok">
+        </a>
+      </div>
+    
+      <!-- Facebook -->
+      <div class="icono-individual">
+        <a href="https://www.facebook.com/tuperfil" target="_blank">
+          <img src="assets/face.png" alt="Facebook">
+        </a>
+      </div>
+    
+      <!-- WhatsApp -->
+      <div class="icono-individual">
+        <a href="https://wa.me/5529420270" target="_blank">
+          <img src="assets/what.png" alt="WhatsApp">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal emergente -->
+  <div id="modal-penal" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <p>Defendemos tus derechos en procesos penales con rigor, ética y profesionalismo.</p>
+    </div>
+  </div>
+
+  <!-- Modal para Derecho Civil y Familiar -->
+  <div id="modal-familiar" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarModalFamiliar()">&times;</span>
+      <p>Divorcios, custodias, pensiones, herencias y todo lo relacionado con el núcleo familiar.</p>
+    </div>
+  </div>
+
+  <!-- Modal para Contratos y Empresas -->
+  <div id="modal-empresas" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarModalEmpresas()">&times;</span>
+      <p>Redacción y análisis de contratos, constitución de sociedades y asesoría corporativa.</p>
+    </div>
+  </div>
+
+  <!-- Modal para Asesoría Legal Integral -->
+  <div id="modal-integral" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarModalIntegral()">&times;</span>
+      <p>Te acompañamos con una visión estratégica y profesional en cada paso legal que desees dar.</p>
+    </div>
+  </div>
+
+  <!-- Modal para Derechos Humanos -->
+  <div id="modal-humanos" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarModalHumanos()">&times;</span>
+      <p>Apoyo en procesos que involucren la defensa y protección de los derechos fundamentales.</p>
+    </div>
+  </div>
+
+  <!-- Modal para Formulario de Contacto -->
+<div id="modal-contacto" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarFormularioContacto()">&times;</span>
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" name="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu correo electrónico" required />
+      <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+      <input type="submit" value="Enviar" />
+    </form>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sociedad de la Justicia. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 1. Ocultar intro en 3s
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const intro = document.getElementById('intro-video');
+        intro.classList.add('fade-out');
+      }, 3000);
+    });
+
+    // 2. Efecto expand/encoger en "Bienvenidos"
+    const hero = document.querySelector('.hero');
+    const servicios = document.getElementById('servicios');
+
+    // Al cargar la página
+    window.addEventListener('load', () => {
+      hero.classList.add('expanded');
+      hero.classList.remove('shrunk');
+    });
+
+    // Al hacer scroll
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        hero.classList.remove('expanded');
+        hero.classList.add('shrunk');
+      } else {
+        hero.classList.remove('shrunk');
+        hero.classList.add('expanded');
+      }
+
+      // Servicios (cuando entra al viewport)
+      const serviciosTop = servicios.offsetTop;
+      const windowBottom = scrollY + window.innerHeight;
+
+      if (windowBottom > serviciosTop + 100) {
+        servicios.classList.add('expanded');
+        servicios.classList.remove('shrunk');
+      } else {
+        servicios.classList.remove('expanded');
+        servicios.classList.add('shrunk');
+      }
+    });
+
+    // 3. IntersectionObserver para "Sobre Nosotros"
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('expanded');
+          entry.target.classList.remove('shrunk');
+        } else {
+          entry.target.classList.remove('expanded');
+          entry.target.classList.add('shrunk');
+        }
+      });
+    }, observerOptions);
+
+    // Observamos cualquier sección con .section-expandable
+    document.querySelectorAll('.section-expandable').forEach(section => {
+      observer.observe(section);
+    });
+
+    // 4. Clic en "Inicio" => volver a expandir
+    const inicioLink = document.querySelector('a[href="#inicio"]');
+    inicioLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('#inicio').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        hero.classList.remove('shrunk');
+        hero.classList.add('expanded');
+      }, 700);
+    });
+  </script>
+
+  <script>
+    // Litigio Penal
+    function mostrarModal() {
+      document.getElementById('modal-penal').style.display = 'block';
+    }
+    function cerrarModal() {
+      document.getElementById('modal-penal').style.display = 'none';
+    }
+    window.addEventListener('click', function(e) {
+      const modal = document.getElementById('modal-penal');
+      if (e.target === modal) {
+        cerrarModal();
+      }
+    });
+
+    // Derecho Civil y Familiar
+    function mostrarModalFamiliar() {
+      document.getElementById('modal-familiar').style.display = 'block';
+    }
+    function cerrarModalFamiliar() {
+      document.getElementById('modal-familiar').style.display = 'none';
+    }
+    window.addEventListener('click', function(e) {
+      const modalFamiliar = document.getElementById('modal-familiar');
+      if (e.target === modalFamiliar) {
+        cerrarModalFamiliar();
+      }
+    });
+
+    // Contratos y Empresas
+    function mostrarModalEmpresas() {
+      document.getElementById('modal-empresas').style.display = 'block';
+    }
+    function cerrarModalEmpresas() {
+      document.getElementById('modal-empresas').style.display = 'none';
+    }
+    window.addEventListener('click', function(e) {
+      const modalEmpresas = document.getElementById('modal-empresas');
+      if (e.target === modalEmpresas) {
+        cerrarModalEmpresas();
+      }
+    });
+
+    // Asesoría Legal Integral
+    function mostrarModalIntegral() {
+      document.getElementById('modal-integral').style.display = 'block';
+    }
+    function cerrarModalIntegral() {
+      document.getElementById('modal-integral').style.display = 'none';
+    }
+    window.addEventListener('click', function(e) {
+      const modalIntegral = document.getElementById('modal-integral');
+      if (e.target === modalIntegral) {
+        cerrarModalIntegral();
+      }
+    });
+
+    // Derechos Humanos
+    function mostrarModalHumanos() {
+      document.getElementById('modal-humanos').style.display = 'block';
+    }
+    function cerrarModalHumanos() {
+      document.getElementById('modal-humanos').style.display = 'none';
+    }
+    window.addEventListener('click', function(e) {
+      const modalHumanos = document.getElementById('modal-humanos');
+      if (e.target === modalHumanos) {
+        cerrarModalHumanos();
+      }
+    });
+
+    function abrirFormularioContacto() {
+      document.getElementById('modal-contacto').style.display = 'block';
+    }
+    
+    function cerrarFormularioContacto() {
+      document.getElementById('modal-contacto').style.display = 'none';
+    }
+    
+    window.addEventListener('click', function(e) {
+      const modalContacto = document.getElementById('modal-contacto');
+      if (e.target === modalContacto) {
+        cerrarFormularioContacto();
+      }
+    });
+    
+  </script>
+  
+            
+  <script>
+    const track = document.querySelector('.carrusel-track');
+    const prevBtn = document.querySelector('.carrusel-btn.prev');
+    const nextBtn = document.querySelector('.carrusel-btn.next');
+    let index = 0;
+    const totalSlides = Math.ceil(track.children.length / 2);
+  
+    function updateCarousel() {
+      const width = track.offsetWidth;
+      track.style.transform = `translateX(-${index * width}px)`;
+    }
+  
+    nextBtn.addEventListener('click', () => {
+      if (index < totalSlides - 1) index++;
+      else index = 0;
+      updateCarousel();
+    });
+  
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) index--;
+      else index = totalSlides - 1;
+      updateCarousel();
+    });
+  
+    window.addEventListener('resize', updateCarousel);
+  
+    // Carrusel automático cada 4 segundos
+    setInterval(() => {
+      if (index < totalSlides - 1) index++;
+      else index = 0;
+      updateCarousel();
+    }, 4000);
+  </script>
+
+</body>
+</html>
