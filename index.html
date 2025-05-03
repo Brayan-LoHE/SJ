@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sociedad de la Justicia</title>
+  <link rel="icon" type="image/png" href="assets/logo_enc.png" />
+  <title>La Sociedad de la Justicia</title>
 
-  <!-- Enlazamos el archivo CSS (ajusta la ruta según tu proyecto) -->
+  <!-- Enlazamos el archivo CSS -->
   <link rel="stylesheet" href="styles/main.css" />
   
   <!-- Fuente Poppins -->
@@ -13,17 +14,14 @@
 </head>
 <body>
 
-  <!-- Intro Video pantalla completa -->
-  <div id="intro-video" class="intro-fullscreen">
-    <video autoplay muted playsinline id="videoElement">
-      <source src="assets/intro_sociedad_justicia.webm" type="video/webm">
-      Tu navegador no soporta el video.
-    </video>
-  </div>
+  <!-- Intro GIF pantalla completa -->
+<div id="intro-video" class="intro-fullscreen">
+  <img src="assets/intro.gif" alt="Intro Sociedad de la Justicia" class="intro-gif" />
+</div>
 
   <!-- Encabezado con imagen -->
   <div class="header-banner">
-    <img src="assets/encabezado_logo_frame-removebg-preview.png" alt="Sociedad de la Justicia">
+    <img src="assets/logo_enc.png" alt="Sociedad de la Justicia">
   </div>
 
   <!-- Barra de navegación sticky -->
@@ -35,6 +33,8 @@
       <a href="#servicios">Servicios</a>
       <a href="#equipo">Equipo</a>
       <a href="#contacto">Contacto</a>
+      <a href="#" class="btn-login" onclick="abrirModalLogin()">Iniciar Sesión</a>
+      <a href="#" class="btn-login" onclick="abrirModalRegister()">Registrarte</a>
     </nav>
   </header>
   
@@ -206,10 +206,49 @@
   </div>
 </div>
 
+<!-- Modal de Inicio de Sesión -->
+<div id="modal-login" class="modal modal-login">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalLogin()">&times;</span>
+    <h2>Iniciar Sesión</h2>
+    <form>
+      <input type="email" name="email" placeholder="Correo electrónico" required />
+      <input type="password" name="password" placeholder="Contraseña" required />
+      <input type="submit" value="Entrar" />
+    </form>
+    <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+  </div>
+</div>
+
+<!-- Modal de Registro de Usuario -->
+<div id="modal-register" class="modal modal-login"> <!-- reutilizamos estilos -->
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModalRegister()">&times;</span>
+    <h2>Crear cuenta</h2>
+
+    <form>
+      <input type="text"     name="nombre"    placeholder="Nombre completo" required />
+      <input type="email"    name="email"     placeholder="Correo electrónico" required />
+      <input type="tel"      name="telefono"  placeholder="Teléfono (opcional)" />
+      <input type="password" name="password"  placeholder="Contraseña" required />
+      <input type="password" name="confirmar" placeholder="Confirmar contraseña" required />
+      <input type="submit"   value="Registrarme" />
+    </form>
+
+    <p>¿Ya tienes cuenta?
+       <a href="#" onclick="cerrarModalRegister(); abrirModalLogin(); return false;">Inicia sesión</a>
+    </p>
+  </div>
+</div>
+
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Sociedad de la Justicia. Todos los derechos reservados.</p>
-  </footer>
+<footer>
+  <div class="footer-logo-container">
+    <img src="assets/foot_sj.png" alt="La Sociedad de la Justicia" class="footer-logo">
+  </div>
+  <p>&copy; 2025 La Sociedad de la Justicia. Todos los derechos reservados.</p>
+</footer>
+
 
   <!-- JavaScript -->
   <script>
@@ -372,6 +411,40 @@
       }
     });
     
+  </script>
+
+  <script>
+    function abrirModalLogin() {
+      document.getElementById('modal-login').style.display = 'block';
+    }
+  
+    function cerrarModalLogin() {
+      document.getElementById('modal-login').style.display = 'none';
+    }
+  
+    window.addEventListener('click', function(e) {
+      const modalLogin = document.getElementById('modal-login');
+      if (e.target === modalLogin) {
+        cerrarModalLogin();
+      }
+    });
+  </script>
+
+  <script>
+    /* ---------- Registro ---------- */
+    function abrirModalRegister() {
+      document.getElementById('modal-register').style.display = 'block';
+    }
+  
+    function cerrarModalRegister() {
+      document.getElementById('modal-register').style.display = 'none';
+    }
+  
+    /* Clic fuera del contenido para cerrar */
+    window.addEventListener('click', function (e) {
+      const modalReg = document.getElementById('modal-register');
+      if (e.target === modalReg) cerrarModalRegister();
+    });
   </script>
   
             

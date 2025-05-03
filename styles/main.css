@@ -9,19 +9,28 @@
   
   /* Cuerpo: tipografía y color de fondo global */
   body {
+    /* color de fondo de respaldo mientras carga el GIF */
+    background-color: #0d1b2a;
+  
+    /* tu GIF como fondo */
+    background-image: url("../assets/back3.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* ‘cover’ para ocupar toda la pantalla */
+    background-attachment: fixed; /* si quieres que permanezca fijo al hacer scroll */
+    margin: 0; 
+    padding: 40px 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #0d1b2a; /* Fondo como la barra de navegación */
     color: #333;
-    margin: 0;
-    padding: 40px 0; /* Espacio arriba y abajo para separar las secciones del fondo */
   }
+  
   
   
   /* ================================
      2. HEADER, LOGO Y NAVEGACIÓN
      ================================ */
   header {
-    background-color: #0d1b2a;
+    background-color: #000;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -45,7 +54,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #0d1b2a;
+    background-color:#000 !important;
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -72,27 +81,29 @@
   }
   
   /* ================================
-     3. INTRO VIDEO PANTALLA COMPLETA
+     3. INTRO GIF PANTALLA COMPLETA
      ================================ */
-  .intro-fullscreen {
-    position: fixed;
-    z-index: 2000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .intro-fullscreen video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+     .intro-fullscreen {
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .intro-fullscreen img.intro-gif {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    
   
   /* Ocultar con fade-out */
   .intro-fullscreen.fade-out {
@@ -106,16 +117,19 @@
      ================================ */
   .header-banner {
     text-align: center;
-    background-color: #0d1b2a; 
-    padding: 0;
+    
+    padding: 50;
   }
   
   .header-banner img {
-    width: 100%;
+    width: 20%;
     max-height: 180px;
     object-fit: contain;
-    background-color: #0d1b2a;
+    background-color: rgba(255, 255, 255, 0.8); /* blanco con 70% de opacidad */
+    padding: 10px; /* opcional, para que el fondo se note un poco alrededor del logo */
+    border-radius: 10px; /* opcional, esquinas redondeadas para mejor estética */
   }
+  
   
   /* ================================
      5. SECCIONES COMO TARJETAS
@@ -453,7 +467,6 @@ header {
   align-items: center;
   flex-wrap: wrap;
   padding: 1rem;
-  background-color: #0d1b2a;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -474,7 +487,16 @@ header {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:active,
+.nav-links a.active {
+  color: #f1c40f;
+}
+
 
 /* Botón hamburguesa oculto por defecto en desktop */
 .menu-toggle {
@@ -507,4 +529,51 @@ header {
   .menu-toggle {
     display: block;
   }
+}
+
+footer {
+  text-align: center;
+  padding: 0px;
+  background: #fff;
+  color: #0d1b2a;
+  margin: 0;              
+  position: relative;
+}
+
+.footer-logo-container {
+  /* Le damos el mismo estilo de “tarjeta” que usas en Contacto o demás secciones */
+  width: 100;
+  text-align: center;
+  background-color: #fff;
+  margin: 0; 
+  border-radius: 0;
+   /*max-width: 1000px;      mismo ancho máximo que tus secciones */
+  box-shadow: none;
+  padding: 0;     /* margen interno para que se vea más espacioso */
+  }
+
+.footer-logo {
+  /* Se ajusta al ancho del contenedor */
+  width: 25%;
+  height: auto;
+  filter: brightness(1.2);  /* opcional para aclarar */
+  display: center;
+}
+
+/* Estilo para el modal de inicio de sesión con fondo GIF */
+.modal-login {
+  background-image: url("../assets/back_log.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
+}
+
+/* Ajustes para que el contenido del modal resalte sobre el fondo */
+.modal-login .modal-content {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 10;
 }
